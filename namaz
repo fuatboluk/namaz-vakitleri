@@ -31,11 +31,11 @@ function vakit {
 		ikindi="\e[42m\e[30m\e[1m$ikindi\e[0m"
 	fi
 	
-	if [ $simdi_time -ge $imsak_time ] && [ $simdi_time -lt $gunes_time ]; then
+	if [ $simdi_time -ge $aksam_time ] && [ $simdi_time -lt $yatsi_time ]; then
 		aksam="\e[42m\e[30m\e[1m$aksam\e[0m"
 	fi
 	
-	if [ $simdi_time -ge $imsak_time ] && [ $simdi_time -lt $gunes_time ]; then
+	if [ $simdi_time -ge $yatsi_time ] || [ $simdi_time -lt $imsak_time ]; then
 		yatsi="\e[42m\e[30m\e[1m$yatsi\e[0m"
 	fi
 }
