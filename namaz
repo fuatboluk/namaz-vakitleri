@@ -16,27 +16,27 @@ function vakit {
 	yatsi_time=$(date -d $6 +%s)
 	
 	if [ $simdi_time -ge $imsak_time ] && [ $simdi_time -lt $gunes_time ]; then
-		imsak="\e[107m\e[30m\e[1m$imsak\e[0m"
+		imsak="\e[42m\e[30m\e[1m$imsak\e[0m"
 	fi
 	
 	if [ $simdi_time -ge $gunes_time ] && [ $simdi_time -lt $ogle_time ]; then
-		gunes="\e[107m\e[30m\e[1m$gunes\e[0m"
+		gunes="\e[42m\e[30m\e[1m$gunes\e[0m"
 	fi
 	
 	if [ $simdi_time -ge $ogle_time ] && [ $simdi_time -lt $ikindi_time ]; then
-		ogle="\e[107m\e[30m\e[1m$ogle\e[0m"
+		ogle="\e[42m\e[30m\e[1m$ogle\e[0m"
 	fi
 	
 	if [ $simdi_time -ge $ikindi_time ] && [ $simdi_time -lt $aksam_time ]; then
-		ikindi="\e[107m\e[30m\e[1m$ikindi\e[0m"
+		ikindi="\e[42m\e[30m\e[1m$ikindi\e[0m"
 	fi
 	
 	if [ $simdi_time -ge $imsak_time ] && [ $simdi_time -lt $gunes_time ]; then
-		aksam="\e[107m\e[30m\e[1m$aksam\e[0m"
+		aksam="\e[42m\e[30m\e[1m$aksam\e[0m"
 	fi
 	
 	if [ $simdi_time -ge $imsak_time ] && [ $simdi_time -lt $gunes_time ]; then
-		yatsi="\e[107m\e[30m\e[1m$yatsi\e[0m"
+		yatsi="\e[42m\e[30m\e[1m$yatsi\e[0m"
 	fi
 }
 
