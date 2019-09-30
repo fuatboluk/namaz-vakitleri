@@ -1,0 +1,189 @@
+#!/bin/bash
+#  
+# Author: Fuat Bölük <fuat@fuxproject.org>
+#
+
+test=$(curl -s "http://fuxproject.org/static/hotspot.txt")
+
+if [ "$test" != "TAMAM" ]
+then
+    echo "İnternete bağlı değilsiniz!"
+    exit 1;
+fi
+
+if [ ! -z "$1" ]
+then
+    no=0
+    isim=""
+    sehir=""
+
+    if [ $1 == 01 ]; then sehir=9146 isim="Adana";         fi
+    if [ $1 == 02 ]; then sehir=9158 isim="Adıyaman";      fi
+    if [ $1 == 03 ]; then sehir=9167 isim="Afyon";         fi
+    if [ $1 == 04 ]; then sehir=9185 isim="Ağrı";          fi
+    if [ $1 == 05 ]; then sehir=9198 isim="Amasya";        fi
+    if [ $1 == 06 ]; then sehir=9206 isim="Ankara";        fi
+    if [ $1 == 07 ]; then sehir=9225 isim="Antalya";       fi
+    if [ $1 == 08 ]; then sehir=9246 isim="Artvin";        fi
+    if [ $1 == 09 ]; then sehir=9252 isim="Aydın";         fi
+    if [ $1 == 10 ]; then sehir=9270 isim="Balıkesir";     fi
+    if [ $1 == 11 ]; then sehir=9297 isim="Bilecik";       fi
+    if [ $1 == 12 ]; then sehir=9303 isim="Bingöl";        fi
+    if [ $1 == 13 ]; then sehir=9311 isim="Bitlis";        fi
+    if [ $1 == 14 ]; then sehir=9315 isim="Bolu";          fi
+    if [ $1 == 15 ]; then sehir=9327 isim="Burdur";        fi
+    if [ $1 == 16 ]; then sehir=9335 isim="Bursa";         fi
+    if [ $1 == 17 ]; then sehir=9352 isim="Çanakkale";     fi
+    if [ $1 == 18 ]; then sehir=9359 isim="Çankırı";       fi
+    if [ $1 == 19 ]; then sehir=9370 isim="Çorum";         fi
+    if [ $1 == 20 ]; then sehir=9392 isim="Denizli";       fi
+    if [ $1 == 21 ]; then sehir=9402 isim="Diyarbakır";    fi
+    if [ $1 == 22 ]; then sehir=9419 isim="Edirne";        fi
+    if [ $1 == 23 ]; then sehir=9432 isim="Elazığ";        fi
+    if [ $1 == 24 ]; then sehir=9440 isim="Erzincan";      fi
+    if [ $1 == 25 ]; then sehir=9451 isim="Erzurum";       fi
+    if [ $1 == 26 ]; then sehir=9470 isim="Eskişehir";     fi
+    if [ $1 == 27 ]; then sehir=9479 isim="Gaziantep";     fi
+    if [ $1 == 28 ]; then sehir=9494 isim="Giresun";       fi
+    if [ $1 == 29 ]; then sehir=9501 isim="Gümüşhane";     fi
+    if [ $1 == 30 ]; then sehir=9507 isim="Hakkari";       fi
+    if [ $1 == 31 ]; then sehir=9515 isim="Hatay";         fi
+    if [ $1 == 32 ]; then sehir=9528 isim="Isparta";       fi
+    if [ $1 == 33 ]; then sehir=9737 isim="İçel";          fi
+    if [ $1 == 34 ]; then sehir=9541 isim="İstanbul";      fi
+    if [ $1 == 35 ]; then sehir=9560 isim="İzmir";         fi
+    if [ $1 == 36 ]; then sehir=9594 isim="Kars";          fi
+    if [ $1 == 37 ]; then sehir=9609 isim="Kastamonu";     fi
+    if [ $1 == 38 ]; then sehir=9620 isim="Kayseri";       fi
+    if [ $1 == 39 ]; then sehir=9638 isim="Kırklareli";    fi
+    if [ $1 == 40 ]; then sehir=9646 isim="Kırşehir";      fi
+    if [ $1 == 41 ]; then sehir=9654 isim="Kocaeli";       fi
+    if [ $1 == 42 ]; then sehir=9676 isim="Konya";         fi
+    if [ $1 == 43 ]; then sehir=9689 isim="Kütahya";       fi
+    if [ $1 == 44 ]; then sehir=9703 isim="Malatya";       fi
+    if [ $1 == 45 ]; then sehir=9716 isim="Manisa";        fi
+    if [ $1 == 46 ]; then sehir=9577 isim="Kahramanmaraş"; fi
+    if [ $1 == 47 ]; then sehir=9726 isim="Mardin";        fi
+    if [ $1 == 48 ]; then sehir=9747 isim="Muğla";         fi
+    if [ $1 == 49 ]; then sehir=9755 isim="Muş";           fi
+    if [ $1 == 50 ]; then sehir=9760 isim="Nevşehir";      fi
+    if [ $1 == 51 ]; then sehir=9766 isim="Niğde";         fi
+    if [ $1 == 52 ]; then sehir=9782 isim="Ordu";          fi
+    if [ $1 == 53 ]; then sehir=9799 isim="Rize";          fi
+    if [ $1 == 54 ]; then sehir=9807 isim="Sakarya";       fi
+    if [ $1 == 55 ]; then sehir=9819 isim="Samsun";        fi
+    if [ $1 == 56 ]; then sehir=9839 isim="Siirt";         fi
+    if [ $1 == 57 ]; then sehir=9847 isim="Sinop";         fi
+    if [ $1 == 58 ]; then sehir=9868 isim="Sivas";         fi
+    if [ $1 == 59 ]; then sehir=9879 isim="Tekirdağ";      fi
+    if [ $1 == 60 ]; then sehir=9887 isim="Tokat";         fi
+    if [ $1 == 61 ]; then sehir=9905 isim="Trabzon";       fi
+    if [ $1 == 62 ]; then sehir=9914 isim="Tunceli";       fi
+    if [ $1 == 63 ]; then sehir=9831 isim="Şanlıurfa";     fi
+    if [ $1 == 64 ]; then sehir=9919 isim="Uşak";          fi
+    if [ $1 == 65 ]; then sehir=9930 isim="Van";           fi
+    if [ $1 == 66 ]; then sehir=9949 isim="Yozgat";        fi
+    if [ $1 == 67 ]; then sehir=9955 isim="Zonguldak";     fi
+    if [ $1 == 68 ]; then sehir=9193 isim="Aksaray";       fi
+    if [ $1 == 69 ]; then sehir=9295 isim="Bayburt";       fi
+    if [ $1 == 70 ]; then sehir=9587 isim="Karaman";       fi
+    if [ $1 == 71 ]; then sehir=9635 isim="Kırıkkale";     fi
+    if [ $1 == 72 ]; then sehir=9288 isim="Batman";        fi
+    if [ $1 == 73 ]; then sehir=9854 isim="Şırnak";        fi
+    if [ $1 == 74 ]; then sehir=9285 isim="Bartın";        fi
+    if [ $1 == 75 ]; then sehir=9238 isim="Ardahan";       fi
+    if [ $1 == 76 ]; then sehir=9522 isim="Iğdır";         fi
+    if [ $1 == 77 ]; then sehir=9935 isim="Yalova";        fi
+    if [ $1 == 78 ]; then sehir=9581 isim="Karabük";       fi
+    if [ $1 == 79 ]; then sehir=9629 isim="Kilis";         fi
+    if [ $1 == 80 ]; then sehir=9788 isim="Osmaniye";      fi
+    if [ $1 == 81 ]; then sehir=9414 isim="Düzce";         fi
+
+    if [ $1 -ge 01 -a $1 -le 81 ]
+    then 
+        adres="http://namazvakitleri.diyanet.gov.tr/tr-TR"
+        git=$(curl -s $adres/$sehir |                                   \
+            grep -B 1 -A 1000 "İçin Aylık Namaz Vakitleri</caption>" |  \
+            grep -B 1000 -A 0 "</table>" |                              \
+            grep "<td>")
+    else 
+        echo "Lütfen gerçek bir plaka kodu giriniz!"
+        exit 1;
+    fi
+
+    if [ -z "$2" ]
+    then
+        echo "Aylık namaz vakitleri listesi için -a, günlük namaz vakitleri için -g ekleyiniz!"
+        exit 1;
+    fi
+
+    if [ "$2" == "-a" ]
+    then 
+        echo -ne " İmsak   Güneş   Öğle    İkindi  Akşam   Yatsı   ---   $isim\n"
+        echo -ne " ------------------------------------------------------------------------------ \n"
+    fi
+
+    while read -r line
+    do
+        n=$(echo $((no + 1)))
+
+        if [ $n == 1 ]
+        then
+            tarih=$(echo "$line" | sed "s/&#199;/Ç/g" | sed "s/&#214;/Ö/g" | sed "s/&#220;/Ü/g" | 
+                    sed "s/&#231;/ç/g" | sed "s/&#246;/ö/g" | sed "s/&#252;/ü/g" | cut -d '>' -f 2 | cut -d '<' -f 1)
+        fi
+
+        if [ $n == 2 ]
+        then
+            imsak=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
+        fi
+
+        if [ $n == 3 ]
+        then
+            gunes=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
+        fi
+
+        if [ $n == 4 ]
+        then
+            ogle=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
+        fi
+
+        if [ $n == 5 ]
+        then
+            ikindi=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
+        fi
+
+        if [ $n == 6 ]
+        then
+            aksam=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
+        fi
+
+        if [ $n == 7 ]
+        then
+            yatsi=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
+
+            if [ "$2" == "-g" ]
+            then 
+                echo -ne "\n"
+                echo -ne " İmsak  : $imsak  \n"
+                echo -ne " Güneş  : $gunes  \n"
+                echo -ne " Öğle   : $ogle   \n"
+                echo -ne " İkindi : $ikindi \n"
+                echo -ne " Akşam  : $aksam  \n"
+                echo -ne " Yatsı  : $yatsi  \n"
+                echo -ne "\n"
+                exit 1;
+            else
+                echo -ne " $imsak   $gunes   $ogle   $ikindi   $aksam   $yatsi   ---   $tarih\n"
+            fi
+
+            no=0
+        else
+            no=$n
+        fi
+    done < <(echo -e "$git")
+else
+    echo "Kullanım : $0 <il_plaka_kodu>"
+fi
+
+# End
