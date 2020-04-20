@@ -1,9 +1,7 @@
 #!/bin/bash
-#  
-# Author: Fuat Bölük <fuat@fuxproject.org>
-#
+# Author: Fuat Bölük <mektup@fuatboluk.com.tr>
 
-test=$(curl -s "http://fuxproject.org/static/hotspot.txt")
+test=$(curl -s "https://fuatboluk.com.tr/static/connection.txt")
 
 function vakit {
 	simdi=$(date +"%H:%M")
@@ -40,7 +38,7 @@ function vakit {
 	fi
 }
 
-if [ "$test" != "TAMAM" ]
+if [ "$test" != "OK" ]
 then
     echo "İnternete bağlı değilsiniz!"
     exit 1;
