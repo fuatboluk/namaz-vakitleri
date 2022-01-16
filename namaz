@@ -134,7 +134,7 @@ then
 
     if [ $1 -ge 01 -a $1 -le 81 ]
     then 
-        adres="http://namazvakitleri.diyanet.gov.tr/tr-TR"
+        adres="https://namazvakitleri.diyanet.gov.tr/tr-TR"
         git=$(curl -s $adres/$sehir |                                   \
             grep -B 1 -A 1000 "İçin Aylık Namaz Vakitleri</caption>" |  \
             grep -B 1000 -A 0 "</table>" |                              \
