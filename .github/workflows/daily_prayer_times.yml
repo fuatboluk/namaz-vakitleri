@@ -1,0 +1,23 @@
+name: Daily Prayer Times
+
+on:
+  workflow_dispatch:
+    schedule:
+      - cron: "30 03 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repository check
+        uses: actions/checkout@v3
+
+      - name: Daily Prayer Times
+        run: ./namaz 34
+        shell: bash
+
+      - name: Update README.md
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 🔼 Prayer times updated automatically
