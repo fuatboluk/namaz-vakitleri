@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
     schedule:
       - cron: "30 03 01 * *"
+      - timezone: "Europe/Istanbul"
 
 jobs:
   build:
@@ -12,8 +13,6 @@ jobs:
     steps:
       - name: Repository check
         uses: actions/checkout@v3
-          with:
-            timezoneLinux: "Europe/Istanbul"
 
       - name: Daily Prayer Times
         run: chmod +x ./namaz && ./namaz 34 -a -w
