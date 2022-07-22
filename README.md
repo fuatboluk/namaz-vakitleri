@@ -2,6 +2,7 @@
 
 Türkiye için namaz vakitlerini, Diyanet'in sitesinden günlük ve aylık olarak, belirtilen il için gösteren betik.
 
+```diff
  İmsak   Güneş   Öğle    İkindi  Akşam   Yatsı   ---   İstanbul
  ------------------------------------------------------------------------------ 
  03:55   05:44   13:16   17:12   20:37   22:19   ---   23 Temmuz 2022 Cumartesi
@@ -35,3 +36,4 @@ Türkiye için namaz vakitlerini, Diyanet'in sitesinden günlük ve aylık olara
  04:37   06:11   13:13   16:59   20:04   21:32   ---   20 Ağustos 2022 Cumartesi
  04:38   06:12   13:12   16:59   20:02   21:30   ---   21 Ağustos 2022 Pazar
  04:39   06:13   13:12   16:58   20:01   21:29   ---   22 Ağustos 2022 Pazartesi
+```
