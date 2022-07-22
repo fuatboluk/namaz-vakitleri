@@ -149,6 +149,7 @@ then
             echo -ne "\n" >> README.md
             echo -ne "Türkiye için namaz vakitlerini, Diyanet'in sitesinden günlük ve aylık olarak, belirtilen il için gösteren betik.\n" >> README.md
             echo -ne "\n" >> README.md
+            echo -ne '```diff\n' >> README.md
             echo -ne " İmsak   Güneş   Öğle    İkindi  Akşam   Yatsı   ---   $isim\n" >> README.md
             echo -ne " ------------------------------------------------------------------------------ \n" >> README.md
         else
@@ -222,7 +223,12 @@ then
         else
             no=$n
         fi
-    done < <(echo -e "$git")
+    done <<(echo -e "$git")
+    
+    if [ "$3" == "-w" ]
+    then
+        echo -ne '```\n' >> README.md
+    fi
 else
     echo "Kullanım : $0 <il_plaka_kodu> <-g|-a>"
 fi
