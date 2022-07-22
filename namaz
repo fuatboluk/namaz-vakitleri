@@ -1,8 +1,6 @@
 #!/bin/bash
 # Author: Fuat Bölük <mektup@fuatboluk.com.tr>
 
-test=$(curl -s "https://fuatboluk.com.tr/static/connection.txt")
-
 function vakit {
 	simdi=$(date +"%H:%M")
 	simdi_time=$(date -d $simdi +%s)
@@ -37,12 +35,6 @@ function vakit {
 		yatsi="\e[42m\e[30m\e[1m$yatsi\e[0m"
 	fi
 }
-
-if [ "$test" != "OK" ]
-then
-    echo "İnternete bağlı değilsiniz!"
-    exit 1;
-fi
 
 if [ ! -z "$1" ]
 then
@@ -218,7 +210,7 @@ then
         fi
     done < <(echo -e "$git")
 else
-    echo "Kullanım : $0 <il_plaka_kodu>"
+    echo "Kullanım : $0 <il_plaka_kodu> <-a|-g>"
 fi
 
 # End
