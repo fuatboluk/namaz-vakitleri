@@ -1,5 +1,4 @@
 #!/bin/bash
-# Author: Fuat Bölük <mektup@fuatboluk.com.tr>
 
 function vakit {
 	simdi=$(date +"%H:%M")
@@ -144,8 +143,18 @@ then
 
     if [ "$2" == "-a" ]
     then 
-        echo -ne " İmsak   Güneş   Öğle    İkindi  Akşam   Yatsı   ---   $isim\n"
-        echo -ne " ------------------------------------------------------------------------------ \n"
+        if [ "$3" == "-w" ]
+        then
+            echo -ne "# namaz-vakitleri\n" > README.md
+            echo -ne "\n" >> README.md
+            echo -ne "Türkiye için namaz vakitlerini, Diyanet'in sitesinden günlük ve aylık olarak, belirtilen il için gösteren betik.\n" >> README.md
+            echo -ne "\n" >> README.md
+            echo -ne " İmsak   Güneş   Öğle    İkindi  Akşam   Yatsı   ---   $isim\n" >> README.md
+            echo -ne " ------------------------------------------------------------------------------ \n" >> README.md
+        else
+            echo -ne " İmsak   Güneş   Öğle    İkindi  Akşam   Yatsı   ---   $isim\n"
+            echo -ne " ------------------------------------------------------------------------------ \n"
+        fi
     fi
 
     while read -r line
@@ -188,9 +197,9 @@ then
             yatsi=$(echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1) 
 
             if [ "$2" == "-g" ]
-            then 
-            vakit $imsak $gunes $ogle $ikindi $aksam $yatsi
-            
+            then
+                vakit $imsak $gunes $ogle $ikindi $aksam $yatsi
+                
                 echo -ne "\n"
                 echo -ne " İmsak  : $imsak  \n"
                 echo -ne " Güneş  : $gunes  \n"
@@ -201,7 +210,12 @@ then
                 echo -ne "\n"
                 exit 1;
             else
-                echo -ne " $imsak   $gunes   $ogle   $ikindi   $aksam   $yatsi   ---   $tarih\n"
+                if [ "$3" == "-w" ]
+                then
+                    echo -ne " $imsak   $gunes   $ogle   $ikindi   $aksam   $yatsi   ---   $tarih\n" >> README.md
+                else
+                    echo -ne " $imsak   $gunes   $ogle   $ikindi   $aksam   $yatsi   ---   $tarih\n"
+                fi
             fi
 
             no=0
@@ -210,7 +224,7 @@ then
         fi
     done < <(echo -e "$git")
 else
-    echo "Kullanım : $0 <il_plaka_kodu> <-a|-g>"
+    echo "Kullanım : $0 <il_plaka_kodu> <-g|-a>"
 fi
 
 # End
