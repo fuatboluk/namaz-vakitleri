@@ -223,7 +223,7 @@ then
         else
             no=$n
         fi
-    done <<(echo -e "$git")
+    done < <(echo -e "$git")
     
     if [ "$3" == "-w" ]
     then
