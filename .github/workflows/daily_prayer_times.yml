@@ -12,9 +12,11 @@ jobs:
     steps:
       - name: Repository check
         uses: actions/checkout@v3
+          with:
+            timezoneLinux: "Europe/Istanbul"
 
       - name: Daily Prayer Times
-        run: timedatectl set-ntp false && timedatectl set-timezone Europe/Istanbul && chmod +x ./namaz && ./namaz 34 -a -w
+        run: chmod +x ./namaz && ./namaz 34 -a -w
         shell: bash
 
       - name: Update README.md
